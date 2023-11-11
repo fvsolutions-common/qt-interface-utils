@@ -27,7 +27,7 @@ class Success(BaseModel):
 class Result(BaseModel):
     result: Error | Success
 
-    def display(self, parent):
+    def display(self, parent: QtWidgets.QWidget, title: str | None = None):
         if isinstance(self.result, Success):
             msg = QtWidgets.QMessageBox(parent)
             msg.setIcon(QtWidgets.QMessageBox.Information)
@@ -42,7 +42,10 @@ class Result(BaseModel):
             msg.setIcon(QtWidgets.QMessageBox.Critical)
             msg.setText(self.result.error)
             msg.setStyleSheet("QMessageBox { messagebox-text-interaction-flags: 5; font-family: monospace; } ")
-            msg.setWindowTitle("Error")
+            if title is not None:
+                msg.setWindowTitle(title)
+            else:
+                msg.setWindowTitle("Error")
             msg.setDetailedText(self.result.trace)
 
             # Make the dialog wider
@@ -64,7 +67,7 @@ class Result(BaseModel):
             #     self.ignored_errors.append(self.result.error)
 
 
-def catch_exception():
+def catch_exception(title):
     def decorator(f):
         def wrapped(self, *args, **kwargs):
             try:
@@ -72,7 +75,7 @@ def catch_exception():
             except KeyboardInterrupt:
                 sys.exit()
             except Exception as e:
-                Error.from_exception(e).to_result().display(self)
+                Error.from_exception(e).to_result().display(self, title)
 
         return wrapped
 
