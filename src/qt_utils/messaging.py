@@ -57,8 +57,9 @@ class Result(BaseModel):
 
             layout.addItem(horizontalSpacer, layout.rowCount(), 0, 1, layout.columnCount())
 
-            # Add button to not show again
-            msg.addButton("Don't show again", QtWidgets.QMessageBox.ActionRole)
+            # Add button to not show again, This doesn't work anymore
+            # msg.addButton("Don't show again", QtWidgets.QMessageBox.ActionRole)
+
             # Add ok button
             msg.addButton(QtWidgets.QMessageBox.Ok)
             _ret = msg.exec_()
