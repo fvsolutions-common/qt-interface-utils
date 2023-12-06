@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QDialog, QTextEdit, QVBoxLayout
 
-
 from .messaging import catch_exception
+
 
 class LicenseDialog:
     def __init__(self, parent, application_context):
