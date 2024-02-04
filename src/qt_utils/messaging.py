@@ -2,7 +2,7 @@ import sys
 import traceback
 
 from pydantic import BaseModel
-from PySide2 import QtWidgets
+from qtpy import QtWidgets
 
 
 class Error(BaseModel):
