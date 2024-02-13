@@ -1,7 +1,7 @@
 import sys
 
-from PySide2.QtCore import QObject
-from PySide2.QtWidgets import QMessageBox
+from qtpy.QtCore import QObject
+from qtpy.QtWidgets import QMessageBox
 
 from .messaging import catch_exception
 

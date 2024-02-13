@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QDialog, QTextEdit, QVBoxLayout
+from qtpy.QtWidgets import QDialog, QTextEdit, QVBoxLayout
 
 from .messaging import catch_exception
 
