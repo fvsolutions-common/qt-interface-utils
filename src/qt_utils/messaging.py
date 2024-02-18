@@ -30,7 +30,7 @@ class Result(BaseModel):
     def display(self, parent: QtWidgets.QWidget, title: str | None = None):
         if isinstance(self.result, Success):
             msg = QtWidgets.QMessageBox(parent)
-            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
             msg.setText(self.result.message)
             msg.setStyleSheet("QMessageBox { messagebox-text-interaction-flags: 5; font-family: monospace; } ")
             msg.setWindowTitle("Success")
@@ -39,7 +39,7 @@ class Result(BaseModel):
 
         else:
             msg = QtWidgets.QMessageBox(parent)
-            msg.setIcon(QtWidgets.QMessageBox.Critical)
+            msg.setIcon(QtWidgets.QMessageBox.Icon.Critical)
             msg.setText(self.result.error)
             msg.setStyleSheet("QMessageBox { messagebox-text-interaction-flags: 5; font-family: monospace; } ")
             if title is not None:
@@ -50,7 +50,7 @@ class Result(BaseModel):
 
             # Make the dialog wider
             horizontalSpacer = QtWidgets.QSpacerItem(
-                350, 0, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+                350, 0, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding
             )
             layout = msg.layout()
             assert isinstance(layout, QtWidgets.QGridLayout)
@@ -61,7 +61,7 @@ class Result(BaseModel):
             # msg.addButton("Don't show again", QtWidgets.QMessageBox.ActionRole)
 
             # Add ok button
-            msg.addButton(QtWidgets.QMessageBox.Ok)
+            msg.addButton(QtWidgets.QMessageBox.StandardButton.Ok)
             _ret = msg.exec_()
 
             # if ret == 0:

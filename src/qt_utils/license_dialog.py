@@ -20,7 +20,7 @@ class LicenseDialog:
 
             textbox = QTextEdit()
             textbox.setReadOnly(True)
-            textbox.setLineWrapMode(QTextEdit.NoWrap)
+            textbox.setLineWrapMode(QTextEdit.LineWrapMode.NoWrap)
             textbox.setText(f.read())
 
             font = textbox.font()
