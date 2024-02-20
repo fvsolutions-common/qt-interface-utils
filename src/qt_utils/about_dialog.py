@@ -4,8 +4,6 @@ from fbs_runtime import PUBLIC_SETTINGS
 from qtpy.QtCore import QObject
 from qtpy.QtWidgets import QMessageBox
 
-from .messaging import catch_exception
-
 
 class QAboutDialog(QObject):
     def __init__(self, parent):
