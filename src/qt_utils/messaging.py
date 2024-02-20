@@ -29,7 +29,7 @@ class Result(BaseModel):
 
     def display(self, parent: QtWidgets.QWidget, title: str | None = None):
         if isinstance(self.result, Success):
-            msg = QtWidgets.QMessageBox(parent)
+            msg = QtWidgets.QMessageBox()
             msg.setIcon(QtWidgets.QMessageBox.Icon.Information)
             msg.setText(self.result.message)
             msg.setStyleSheet("QMessageBox { messagebox-text-interaction-flags: 5; font-family: monospace; } ")
@@ -38,7 +38,7 @@ class Result(BaseModel):
             msg.exec_()
 
         else:
-            msg = QtWidgets.QMessageBox(parent)
+            msg = QtWidgets.QMessageBox()
             msg.setIcon(QtWidgets.QMessageBox.Icon.Critical)
             msg.setText(self.result.error)
             msg.setStyleSheet("QMessageBox { messagebox-text-interaction-flags: 5; font-family: monospace; } ")
