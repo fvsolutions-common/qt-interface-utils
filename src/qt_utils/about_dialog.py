@@ -12,7 +12,7 @@ class QAboutDialog(QObject):
 
     def show(self):
         """Build and show the about window"""
-        version = PUBLIC_SETTINGS["wfull_version"]
+        version = PUBLIC_SETTINGS["full_version"]
         author = PUBLIC_SETTINGS["author"]
         environment = PUBLIC_SETTINGS["environment"]
         copyright = PUBLIC_SETTINGS["copyright"]
