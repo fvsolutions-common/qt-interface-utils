@@ -1,3 +1,4 @@
+import logging
 import sys
 import traceback
 
@@ -77,7 +78,9 @@ def catch_exception(title):
                 sys.exit()
             except Exception as e:
                 Error.from_exception(e).to_result().display(self, title)
-
+                logger = logging.getLogger(__name__)
+                logger.exception("Error in function %s", f.__name__)
+                
         return wrapped
 
     return decorator
