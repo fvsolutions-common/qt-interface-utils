@@ -80,7 +80,6 @@ def catch_exception(title):
                 Error.from_exception(e).to_result().display(self, title)
                 logger = logging.getLogger(__name__)
                 logger.exception("Error in function %s", f.__name__)
-
         return wrapped
 
     return decorator
