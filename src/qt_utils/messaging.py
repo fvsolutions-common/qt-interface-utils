@@ -12,7 +12,7 @@ class Error(BaseModel):
 
     @classmethod
     def from_exception(cls, e: Exception):
-        return cls(trace=traceback.format_exc(), error=str(e))
+        return cls(trace=traceback.format_exc(), error=e.__repr__())
 
     def to_result(self) -> "Result":
         return Result(result=self)
