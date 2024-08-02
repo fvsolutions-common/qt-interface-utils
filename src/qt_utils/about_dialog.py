@@ -2,11 +2,11 @@ import sys
 
 from fbs_runtime import PUBLIC_SETTINGS
 from qtpy.QtCore import QObject
-from qtpy.QtWidgets import QMessageBox
+from qtpy.QtWidgets import QMessageBox, QWidget
 
 
 class QAboutDialog(QObject):
-    def __init__(self, parent):
+    def __init__(self, parent: QWidget):
         super().__init__()
         self._parent = parent
 
