@@ -1,14 +1,10 @@
 import logging
-import os
-import time
 from functools import cached_property
-from logging.handlers import RotatingFileHandler
 
-import pydantic
 from pydantic import BaseModel
 from qtpy import QtWidgets
 from qtpy.QtCore import QObject, Signal
-from qtpy.QtGui import QAction, QColor
+from qtpy.QtGui import QColor
 
 
 class QDockableLoggingWidget(QtWidgets.QDockWidget):
@@ -20,7 +16,7 @@ class QDockableLoggingWidget(QtWidgets.QDockWidget):
     def __init__(self, config: Config | None = None, font=None):
         if config is None:
             config = self.Config()
-        super().__init__(parent=None, objectName="python_logger")  # type: ignore
+        super().__init__(parent=None)  # type: ignore
         self.setWindowTitle("Python Logger")
 
         self.config = config
