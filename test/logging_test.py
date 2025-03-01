@@ -2,9 +2,8 @@ import logging
 import threading
 import time
 
-from qtpy import QtWidgets
-
 from qt_interface_utils.log import QDockableLoggingWidget
+from qtpy import QtWidgets
 
 
 def log_thread(name: str):
