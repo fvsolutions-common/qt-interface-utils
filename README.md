@@ -37,12 +37,3 @@ uv venv
 ```bash
 uv sync --all-extras --dev
 ```
-
-## Usage
-
-Commands:
-* build
-* generate
-* run
-* run-installer
-* run-python
