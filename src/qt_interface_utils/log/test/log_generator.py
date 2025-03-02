@@ -1,6 +1,6 @@
+import logging
 import threading
 import time
-import logging
 
 
 class TestLogGenerator:
