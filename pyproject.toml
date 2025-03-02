@@ -1,42 +1,41 @@
-[tool.poetry]
+[project]
 name = "qt-interface-utils"
-version = "0.1.0"
-description = ""
-authors = ["floris vernieuwe <floris@vernieuwe.eu>"]
+dynamic = ["version"]
+description = "An collection of utilities for working with Qt interfaces."
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "coloredlogs>=15.0.1",
+    "pydantic>=2.10.6",
+    "qtpy>=2.4.3",
+]
 
-[tool.poetry-dynamic-versioning]
-enable = false
-
-[tool.poetry.dependencies]
-python = ">=3.10,<3.14"
-pydantic = "^2.4.2"
-poetry-dynamic-versioning = "^1.1.1"
-qtpy = "^2.4.1"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
-build-backend = "poetry_dynamic_versioning.backend"
-
-[tool.black]
-line-length = 120
-
-[tool.pyright]
-exclude = [".venv"]
+[dependency-groups]
+dev = [
+    "ruff>=0.9.9",
+]
 
 [tool.ruff.lint]
 select = ["E", "F"]
-extend-select = ["I"]
+ignore = ["E402"]
 
 [tool.ruff]
-exclude = [
-    ".venv",
-]
-# Add organize imports
-
-
 line-length = 120
-# indent-width = 4
+exclude = ["**.pyi", "**/.venv/**"]
+include = ["src/**.py", "test/**.py"]
+
+[tool.pyright]
+ignore = ["**.pyi", "**/.venv/**"]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.pyright.defineConstant]
+PYQT5 = false
+PYSIDE2 = false
+PYQT6 = false
+PYSIDE6 = true

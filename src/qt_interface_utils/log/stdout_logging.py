@@ -1,8 +1,5 @@
 import coloredlogs
 
-
-# def StdoutLogging():
-
 import logging
 import os
 import tempfile

@@ -13,5 +13,6 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportWildcardImportFromLibrary": "none"
     },
-    "python.terminal.activateEnvInCurrentTerminal": true
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python-envs.pythonProjects": []
 }

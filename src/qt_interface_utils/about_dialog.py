@@ -1,22 +1,22 @@
 import sys
 
-from fbs_runtime import PUBLIC_SETTINGS
 from qtpy.QtCore import QObject
 from qtpy.QtWidgets import QMessageBox, QWidget
 
 
 class QAboutDialog(QObject):
-    def __init__(self, parent: QWidget):
+    def __init__(self, parent: QWidget, information: dict[str, str]):
         super().__init__()
         self._parent = parent
+        self.information = information
 
     def show(self):
         """Build and show the about window"""
-        version = PUBLIC_SETTINGS["full_version"]
-        author = PUBLIC_SETTINGS["author"]
-        environment = PUBLIC_SETTINGS["environment"]
-        copyright = PUBLIC_SETTINGS["copyright"]
-        app_name = PUBLIC_SETTINGS["app_name"]
+        version = self.information["full_version"]
+        author = self.information["author"]
+        environment = self.information["environment"]
+        copyright = self.information["copyright"]
+        app_name = self.information["app_name"]
 
         text = f"""<center>
                     <h1>{app_name}</h1>
